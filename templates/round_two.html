@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>
         "Jeopardy"
     </title>
-    <!-- <link rel="stylesheet" href="/static/style.css"> -->
+    <link rel="stylesheet" href="/static/style.css">
     <!-- <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/turn.js/3/turn.min.js" integrity="sha512-rFun1mEMg3sNDcSjeGP35cLIycsS+og/QtN6WWnoSviHU9ykMLNQp7D1uuG1AzTV2w0VmyFVpszi2QJwiVW6oQ==" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/turn.js/3/turn.min.js"></script>
@@ -16,15 +17,129 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script> -->
 </head>
-<body class="jeopardy_board_round_2" style="background-image: url('/static/images/Jeopardy-board2.jpg'); background-repeat: no-repeat;background-position: center top; background-size: cover;">
 
-
-    <form id="final_jeopardy" action="/final_round" method = "POST">
-        <input  type="submit" value="Final Jeopardy" style="background-color:rgb(253, 219, 127);">
+<body class="jeopardy_board_round_2"
+    style="background-image: url('/static/images/Jeopardy-board2.0.jpg'); background-repeat: no-repeat;text-align: center;background-position: center top; background-size: cover;">
+    <form id="round_1" action="/round_one" method="POST">
+        <input type="submit" value="Round 1" style="background-color:rgb(253, 219, 127);">
     </form>
+    <table
+        style="position: absolute; left: 20.75vw; top: 12vw; width: 59%; height: 70%; border: 20px solid black; word-wrap: break-word; ">
+        <tr>
+            {% for category in answers %}
+            <th style="color: white;font-weight: 900; font-size: 2rem"">
+                {{ category }}
+            </th>
+            {% endfor %}
+        </tr>
+        <tr style=" color: goldenrod;font-weight: 900;">
+            <td>
+                <button id="c1.400" onclick=" answerFunction()">$400</button> </td>
+            <td>
+                <button id="c2.400" onclick=" answerFunction()">$400</button> </td>
+            <td>
+                <button id="c3.400" onclick=" answerFunction()">$400</button> </td>
+            <td>
+                <button id="c4.400" onclick=" answerFunction()">$400</button> </td>
+            <td>
+                <button id="c5.400" onclick=" answerFunction()">$400</button> </td>
+            <td>
+                <button id="c6.200" onclick=" answerFunction()">$400</button> </td>
+
+        </tr>
+        <tr style="color: goldenrod;font-weight: 900;">
+            <td>
+                <button id="c1.800" onclick=" answerFunction()">$800</button>
+            </td>
+            <td>
+                <button id="c2.800" onclick=" answerFunction()">$800</button>
+            </td>
+            <td>
+                <button id="c3.800" onclick=" answerFunction()">$800</button>
+            </td>
+            <td>
+                <button id="c4.800" onclick=" answerFunction()">$800</button>
+            </td>
+            <td>
+                <button id="c5.800" onclick=" answerFunction()">$800</button>
+            </td>
+            <td>
+                <button id="c6.800" onclick=" answerFunction()">$800</button>
+            </td>
+        </tr>
+        <tr style="color: goldenrod;font-weight: 900;">
+            <td>
+                <button id="c1.1200" onclick=" answerFunction()">$1200</button>
+            </td>
+            <td>
+                <button id="c2.1200" onclick=" answerFunction()">$1200</button>
+            </td>
+            <td>
+                <button id="c3.1200" onclick=" answerFunction()">$1200</button>
+            </td>
+            <td>
+                <button id="c4.1200" onclick=" answerFunction()">$1200</button>
+            </td>
+            <td>
+                <button id="c5.1200" onclick=" answerFunction()">$1200</button>
+            </td>
+            <td>
+                <button id="c6.1200" onclick=" answerFunction()">$1200</button>
+            </td>
+
+
+        </tr>
+        <tr style="color: goldenrod;font-weight: 900;">
+            <td>
+                <button id="c1.1600" onclick=" answerFunction()">$1600</button>
+            </td>
+            <td>
+                <button id="c2.1600" onclick=" answerFunction()">$1600</button>
+            </td>
+            <td>
+                <button id="c3.1600" onclick=" answerFunction()">$1600</button>
+            </td>
+            <td>
+                <button id="c4.1600" onclick=" answerFunction()">$1600</button>
+            </td>
+            <td>
+                <button id="c5.1600" onclick=" answerFunction()">$1600</button>
+            </td>
+            <td>
+                <button id="c6.1600" onclick=" answerFunction()">$1600</button>
+            </td>
+
+        </tr>
+        <tr style="color: goldenrod;font-weight: 900;">
+
+            <td>
+                <button id="c1.2000" onclick=" answerFunction()">$2000</button>
+            </td>
+            <td>
+                <button id="c2.2000" onclick=" answerFunction()">$2000</button>
+            </td>
+
+            <td>
+                <button id="c3.2000" onclick=" answerFunction()">$2000</button>
+            </td>
+
+            <td>
+                <button id="c4.2000" onclick=" answerFunction()">$2000</button>
+            </td>
+
+            <td>
+                <button id="c5.2000" onclick=" answerFunction()">$2000</button>
+            </td>
+
+            <td>
+                <button id="c6.2000" onclick=" answerFunction()">$2000</button>
+            </td>
+        </tr>
+
+
+    </table>
 
 
 </body>
+
 </html>
-
-
