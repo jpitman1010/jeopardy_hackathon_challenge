@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, flash, session, redirect, url
 import os
 import sys
 from jinja2 import StrictUndefined
+import json
 
 app = Flask(__name__)
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
@@ -96,6 +97,7 @@ question_answer_dict2 = {
     2000: {'A': "On Dec. 10, 2010 he conducted a one-man, 9-hour filibuster on the Senate floor to protest a tax bill", 'Q': "Who is Bernie Sanders?"}
     }}
 
+json_answer_dict1 = json.dumps(question_answer_dict1)
 category_1 = [question_answer_dict1[2],question_answer_dict1[4],question_answer_dict1[6], question_answer_dict1[8], question_answer_dict1[10], question_answer_dict1[12]]
 category_2 = [question_answer_dict2[2],question_answer_dict2[4],question_answer_dict2[6], question_answer_dict2[8], question_answer_dict2[10], question_answer_dict2[12]]
 categories = question_answer_dict1.keys()
