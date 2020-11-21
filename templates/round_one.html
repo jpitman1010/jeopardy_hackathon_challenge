@@ -7,145 +7,247 @@
     </title>
     <link rel="stylesheet" href="/static/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js" integrity="sha512-WNLxfP/8cVYL9sj8Jnp6et0BkubLP31jhTG9vhL/F5uEZmg5wEzKoXp1kJslzPQWwPT1eyMiSxlKCgzHLOTOTQ==" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.js" integrity="sha512-1lagjLfnC1I0iqH9plHYIUq3vDMfjhZsLy9elfK89RBcpcRcx4l+kRJBSnHh2Mh6kLxRHoObD1M5UTUbgFy6nA==" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js" integrity="sha512-/DXTXr6nQodMUiq+IUJYCt2PPOUjrHJ9wFrqpJ3XkgPNOZVfMok7cRw6CSxyCQxXn6ozlESsSh1/sMCTF1rL/g==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+        integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"
+        integrity="sha512-WNLxfP/8cVYL9sj8Jnp6et0BkubLP31jhTG9vhL/F5uEZmg5wEzKoXp1kJslzPQWwPT1eyMiSxlKCgzHLOTOTQ=="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.js"
+        integrity="sha512-1lagjLfnC1I0iqH9plHYIUq3vDMfjhZsLy9elfK89RBcpcRcx4l+kRJBSnHh2Mh6kLxRHoObD1M5UTUbgFy6nA=="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"
+        integrity="sha512-/DXTXr6nQodMUiq+IUJYCt2PPOUjrHJ9wFrqpJ3XkgPNOZVfMok7cRw6CSxyCQxXn6ozlESsSh1/sMCTF1rL/g=="
+        crossorigin="anonymous"></script>
     <!-- <picture>
         <source srcset="/static/images/Jeopardy-board2.0.jpg" media="(max-width: 600px)">
         <source srcset="/static/images/Jeopardy-board2.0.jpg"  media="(max-width: 1500px)">
         <source srcset="/static/images/Jeopardy-board2.0.jpg" >
         <img src="/static/images/Jeopardy-board2.0.jpg" alt="jeopardy" style="width:auto;">
       </picture> -->
-      
+
 </head>
 
 <body class="jeopardy_board_round_1"
     style="background-image: url('/static/images/Jeopardy-board2.0.jpg');width:100% auto; background-repeat: no-repeat;text-align: center;background-position: center top; background-size: cover;">
-    <form id="round_2" action="/round_two" method="POST">
+    <form id="round_2" href="/round_two" method="POST">
         <input type="submit" value="Round 2" style="background-color:rgb(253, 219, 127);">
     </form>
 
-      
-    <table
-        style="position: relative; left: 22vw; top: 11vw; width: 30%; height: auto; word-wrap: break-word; ">
-        <tr >
+
+    <table style="position: relative; left: 22vw; top: 11vw; width: 30%; height: auto; word-wrap: break-word; ">
+        <tr>
             {% for category in answers %}
             <th style="color: white;font-weight: 900; font-size: 1.8vw"">
                 {{ category }}
             </th>
             {% endfor %}
         </tr>
-        <tr style="color: goldenrod;font-weight: 900; font-size: 2vw;">
+        <tr style=" color: goldenrod;font-weight: 900; font-size: 2vw;">
             <td>
-                <button class="button"    id="[2][200]['A']">$200</button class="button" > </td>
+                <form action="/answer" name="answer" method="post" value = "answer">
+
+                    <button class="button" type="submit" id='2-200-A' method="POST">$200</button>
+                </form>
+            </td>
             <td>
-                <button class="button"   id="[3][4][200]" >$200</button class="button" > </td>
+                <form action="/answer" method="post">
+                        <button class="button"  id="4-200-A">$200</button>
+                    </form>
+            </td>
             <td>
-                <button class="button"   id="[5][6][200]" >$200</button class="button" > </td>
+                <form action="/answer" method="post">
+
+                    <button class="button"  id="6-200-A">$200</button>
+                </form>
+            </td>
             <td>
-                <button class="button"   id="[7][8][200]" >$200</button class="button" > </td>
+                <form action="/answer" method="post">
+
+                    <button class="button"  id="8-200-A">$200</button>
+                </form>
+            </td>
             <td>
-                <button class="button"   id="[9][10][200]" >$200</button class="button" > </td>
+                <form action="/answer" method="post">
+
+                    <button class="button" id="10-200-A">$200</button>
+                </form>
+            </td>
             <td>
-                <button class="button"   id="[11][12][200]" >$200</button class="button" > </td>
+                <form action="/answer" method="post">
+
+                    <button class="button"  id="12-200-A">$200</button>
+                </form>
+            </td>
 
         </tr>
         <tr style="color: goldenrod;font-weight: 900;">
             <td>
-                <button class="button"   id="[1][2][400]" >$400</button class="button" >
-            <td>
-                <button class="button"   id="[3][4][400]" >$400</button class="button" >
-            </td>
-            <td>
-                <button class="button"   id="[5][6][400]" >$400</button class="button" >
-            </td>
-            <td>
-                <button class="button"   id="[7][8][400]" >$400</button class="button" >
-            </td>
-            <td>
-                <button class="button"   id="[9]10[400]" >$400</button class="button" >
-            </td>
-            <td>
-                <button class="button"   id="[11][12][400]" >$400</button class="button" >
-            </td>
-     
-        </tr>
-        <tr style="color: goldenrod;font-weight: 900;">
-            <td>
-                <button class="button"   id="[1][2][600]" >$600</button class="button" >
-            </td>
-            <td>
-                <button class="button"   id="[3][4][600]" >$600</button class="button" >
-            </td>
-            <td>
-                <button class="button"   id="[5][6][600]" >$600</button class="button" >
-            </td>
-            <td>
-                <button class="button"    id="[7][8][600]" >$600</button class="button" >
-            </td>
-            <td>
-                <button class="button"   id="[9][10][600]" >$600</button class="button" >
-            </td>
-            <td>
-                <button class="button"   id="[11][12][600]" >$600</button class="button" >
-            </td>
+                <form action="/answer" method="post">
 
+                    <button class="button"  id="2-400-A">$400</button>
+            <td>
+                <form action="/answer" method="post">
+
+                    <button class="button"  id="4-400-A">$400</button>
+                </form>
+            </td>
+            <td>
+                <form action="/answer" method="post">
+
+                    <button class="button"  id="6-400-A">$400</button>
+                </form>
+            </td>
+            <td>
+                <form action="/answer" method="post">
+
+                    <button class="button"  id="8-400-A">$400</button>
+                </form>
+            </td>
+            <td>
+                <form action="/answer" method="post">
+
+                    <button class="button"  id="10-400-A">$400</button>
+                </form>
+            </td>
+            <td>
+                <form action="/answer" method="post">
+
+                    <button class="button"  id="12-400-A">$400</button>
+                </form>
+            </td>
 
         </tr>
         <tr style="color: goldenrod;font-weight: 900;">
             <td>
-                <button class="button"   id="[1][2][800]" >$800</button class="button" >
+                <form action="/answer" method="post">
+
+                    <button class="button"  id="2-600-A">$600</button>
+                </form>
             </td>
             <td>
-                <button class="button"   id="[3][4][800]" >$800</button class="button" >
+                <form action="/answer" method="post">
+
+                    <button class="button"  id="4-600-A">$600</button>
+                </form>
             </td>
             <td>
-                <button class="button"   id="[5][6][800]" >$800</button class="button" >
+                <form action="/answer" method="post">
+
+                    <button class="button"  id="6-600-A">$600</button>
+                </form>
             </td>
             <td>
-                <button class="button"   id="[7][8][800]" >$800</button class="button" >
+                <form action="/answer" method="post">
+
+                    <button class="button"  id="8-600-A">$600</button>
+                </form>
             </td>
             <td>
-                <button class="button"   id="[9][10][800]" >$800</button class="button" >
+                <form action="/answer" method="post">
+
+                    <button class="button"  id="10-600-A">$600</button>
+                </form>
             </td>
             <td>
-                <button class="button"   id="[11][12][800]" >$800</button class="button" >
+                <form action="/answer" method="post">
+
+                    <button class="button"  id="12-600-A">$600</button>
+                </form>
+            </td>
+
+
+        </tr>
+        <tr style="color: goldenrod;font-weight: 900;">
+            <td>
+                <form action="/answer" method="post">
+
+                    <button class="button"  id="2-800-A">$800</button>
+                </form>
+            </td>
+            <td>
+                <form action="/answer" method="post">
+
+                    <button class="button"  id="4-800-A">$800</button>
+                </form>
+            </td>
+            <td>
+                <form action="/answer" method="post">
+
+                    <button class="button"  id="6-800-A">$800</button>
+                </form>
+            </td>
+            <td>
+                <form action="/answer" method="post">
+
+                    <button class="button"  id="8-800-A">$800</button>
+                </form>
+            </td>
+            <td>
+                <form action="/answer" method="post">
+
+                    <button class="button"  id="10-800-A">$800</button>
+                </form>
+            </td>
+            <td>
+                <form action="/answer" method="post">
+
+                    <button class="button"  id="12-800-A">$800</button>
+                </form>
             </td>
 
         </tr>
         <tr style="color: goldenrod;font-weight: 900;">
 
             <td>
-                <button class="button"   id="[1][2][1000]" >$1000</button class="button" >
+                <form action="/answer" method="post">
+
+                    <button class="button"  id="2-1000-A">$1000</button>
+                </form>
             </td>
             <td>
-                <button class="button"   id="[3][4][1000]" >$1000</button class="button" >
+                <form action="/answer" method="post">
+
+                    <button class="button"  id="4-1000-A">$1000</button>
+                </form>
             </td>
 
             <td>
-                <button class="button"   id="[5][6][1000]" >$1000</button class="button" >
+                <form action="/answer" method="post">
+
+                    <button class="button"  id="6-1000-A">$1000</button>
+                </form>
             </td>
 
             <td>
-                <button class="button"   id="[7][8][1000]" >$1000</button class="button" >
+                <form action="/answer" method="post">
+
+                    <button class="button"  id="8-1000-A">$1000</button>
+                </form>
             </td>
 
             <td>
-                <button class="button"   id="[9][10][1000]" >$1000</button class="button" >
+                <form action="/answer" method="post">
+
+                    <button class="button"  id="1000-A">$1000</button>
+                </form>
             </td>
 
             <td>
-                <button class="button"   id="[11][12][1000]" >$1000</button class="button" >
+                <form action="/answer" method="post">
+
+                    <button class="button"  id="1000-A">$1000</button>
+                </form>
             </td>
 
 
         </tr>
         <!-- <tr style="color: goldenrod;font-weight: 900;">
 
-            <td>
+            <td>  <form action="/answer" method="post">
 
-            </td>
+
+            </form></td>
 
         </tr>
         </tr> -->

@@ -136,12 +136,9 @@ var question_answer_dict1 = {
             'A': "It really gets me that una capra is one of these farm animals",
             'Q': "What is a goat?"
         }
-    }
-}
-
-var question_answer_dict2 = {
-    1: 'The Old West',
-    2: {
+    },
+    13: 'The Old West',
+    14: {
         400: {
             'A': "The first of his cowboy hats was called the boss of the plains; Carlsbad, the most popular model, followed",
             'Q': "What is Stetson?"
@@ -163,8 +160,8 @@ var question_answer_dict2 = {
             'Q': "Who is Bat Masterson"
         }
     },
-    3: 'Books & Movies',
-    4: {
+    15: 'Books & Movies',
+    16: {
         400: {
             'A': "The Power and the ___ Daze",
             'Q': "What is Glory?"
@@ -186,8 +183,8 @@ var question_answer_dict2 = {
             'Q': "What is Black?"
         }
     },
-    5: 'Julius Caesar Salad',
-    6: {
+    17: 'Julius Caesar Salad',
+    18: {
         400: {
             'A': "In 2008 a marble one of these was found in a French river, apparently thrown there right after Caesar’s fall.",
             'Q': "What is a bust?"
@@ -209,8 +206,8 @@ var question_answer_dict2 = {
             'Q': "What is a laurel wreath?"
         }
     },
-    7: 'Boning Up',
-    8: {
+    19: 'Boning Up',
+    20: {
         400: {
             'A': "The name of this condition that affects mostly women literally means “porous bone”",
             'Q': "What is osteoporosis?"
@@ -232,8 +229,8 @@ var question_answer_dict2 = {
             'Q': "What is a greenstick?"
         }
     },
-    9: '“Big” Stuff',
-    10: {
+    21: '“Big” Stuff',
+    22: {
         400: {
             'A': "Jazz musicians & jockeys helped give New York City this nickname",
             'Q': "What is the Big Apple?"
@@ -255,8 +252,8 @@ var question_answer_dict2 = {
             'Q': "What is the Big Dig?"
         }
     },
-    11: 'The Sanders of Time',
-    12: {
+    23: 'The Sanders of Time',
+    24: {
         400: {
             'A': "A Louisville museum is devoted to the success story of this man who was famous for his breasts, thighs & legs",
             'Q': "Who is Col. Sander?"
@@ -291,16 +288,29 @@ var question_answer_dict2 = {
 // Q1 = []
 // A2 = []
 // Q2 = []
+score = 0
+
+$("button").click(function () {
+    var id = (this.id).split("-");
+
+    var answer = question_answer_dict1[id[0]][id[1]][id[2]]
+   
+    $("answers").text(answer);
+    var question = question_answer_dict1[id[0]][id[1]]['Q']
+    console.log("answer = ", answer)
+    console.log("question =", question)
+    addAnswer = document.createTextNode(answer);
+    document.getElementById("answer").text(answer);
 
 
-$("button").click(function() {
-    alert(this.id); // or alert($(this).attr('id'));
-    id = (this.id);
-    alert(id)
-    // answer =  question_answer_dict1[2][200]['A']
-    answer = question_answer_dict1[2][200]['A']
-    alert(answer)
-    question = question_answer_dict1[2][200]['Q']
-    alert(question)
-    });
-    // alert(question_answer_dict1[id]);
+
+});
+
+function processAnswer(){
+    $.post('answer.html', $('#question').serialize());
+    // if response === question:
+
+    //     score += id[1]
+    // if response != question:
+    //     score -= id[1]
+};
