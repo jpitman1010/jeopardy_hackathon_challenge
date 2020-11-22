@@ -153,7 +153,7 @@ print('questions 1 = ', Q2)
 def game_stage():
     return render_template("stage.html",  answers = answers1, A1 = A1, Q1 = Q1)
 
-@app.route('/round_one', methods = ['POST'])
+@app.route('/round_one')
 def round_one():
     return render_template("round_one.html", answers = answers1, A1 = A1, Q1 = Q1)
 
@@ -172,15 +172,8 @@ def play_again():
 @app.route('/answer', methods = ['POST'])
 def answer():
 
-    response = request.form
-    print(response)
-    session[response] = response
-    return url_for(post_answer_to_html(response), response=response)
 
-app.route('answer_process')
-def post_answer_to_html(response):
-    response = session[response]
-    return render_template('answer.html', response = response)
+    return redirect('/round_one')
 
 
 if __name__ == '__main__':

@@ -289,28 +289,26 @@ var question_answer_dict1 = {
 // A2 = []
 // Q2 = []
 score = 0
-
 $("button").click(function () {
     var id = (this.id).split("-");
-
     var answer = question_answer_dict1[id[0]][id[1]][id[2]]
-   
-    $("answers").text(answer);
     var question = question_answer_dict1[id[0]][id[1]]['Q']
     console.log("answer = ", answer)
     console.log("question =", question)
-    addAnswer = document.createTextNode(answer);
-    document.getElementById("answer").text(answer);
 
-
-
+    // document.getElementById("one").innerHTML=answer 
+    document.getElementById("one").innerHTML = answer +( "<form action='/answer' method = 'POST' style ='position: absolute; bottom: 10 vw; left 18 vw;> <input type='text' placeholder='Type your answer here, then click submit.' name='question'><input  type='button' value='Submit Question' style='background-color:rgb(253, 219, 127);'></form>")
 });
 
-function processAnswer(){
-    $.post('answer.html', $('#question').serialize());
+// function processAnswer(){
+    // $.post('answer.html', $('#question').serialize());
     // if response === question:
 
     //     score += id[1]
     // if response != question:
     //     score -= id[1]
-};
+// };
+
+
+
+   
